@@ -1,0 +1,20 @@
+# raw downloaded catalogs (re-fetched by 01_fetch_catalogs.py; GB-scale, not ours to redistribute)
+data/
+
+# heavy generated spectrum panels (reproduced by 08_inspect_top.py)
+out/inspect/
+
+# assistant-local notes, not part of the public repo
+CLAUDE.local.md
+.claude/
+
+# preprint drafts/figures live and are published separately (Zenodo DOI in README)
+preprint files/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# OS/editor cruft
+.DS_Store
