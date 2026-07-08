@@ -1,6 +1,6 @@
 # loop_search — searching open archives for causal-loop candidates
 
-Pipeline for the phenomenology of preprint DOI 10.5281/zenodo.21149561
+Pipeline for the phenomenology of preprint DOI 10.5281/zenodo.21149560
 ("self-consistent causal loops from black-hole bounces"). Channel priority
 after the pilot analysis (July 2026):
 
@@ -35,16 +35,17 @@ python 05_ew_screen.py           # Stage 2: matched-filter EW screen on SDSS spe
 python 06_merge_candidates.py    # merges Stage 1+2 -> final candidate list
 python 07_calibrate_screen.py    # calibrates Stage-2 false-negative/true-positive rate
 python 08_inspect_top.py         # PNG panels for eyeballing the top candidates
+python 09_reproduce_boxcar_recheck.py  # regenerates the retracted box-car screen's miss rate (~40 min, background)
 ```
 
-## Status (2026-07-07)
+## Status (2026-07-08)
 Pipeline 01→08 runs cleanly end to end. **out/final_candidates.csv holds N=39**
-candidates, after three iterations of the Stage-2 method (box-car sum ->
+targets, after three iterations of the Stage-2 method (box-car sum ->
 single pixel -> matched-filter scan; the first two were retracted — see
 CLAUDE.md for the full story) plus a quality filter on limit informativeness
-(3σ upper limit < 0.2 Å, comparable to the calibration sample). 10 candidates
+(3σ upper limit < 0.2 Å, comparable to the calibration sample). 10 targets
 come from known metallicity (Rafelski+2012, [M/H] < -2.0), 29 from the
-matched-filter screen of SDSS spectra. Calibration on 58 known-metallicity
+matched-filter screen of SDSS spectra. Calibration on 59 known-metallicity
 systems: 0% false-negative rate. Full method history, both retracted
 versions, and why an earlier N=66 is not trustworthy — all in CLAUDE.md.
 
@@ -65,14 +66,15 @@ versions, and why an earlier N=66 is not trustworthy — all in CLAUDE.md.
 - `out/dla_known_metallicity_matches.csv` — Stage 1: Rafelski cross-match
 - `out/zcnn_vs_metal_velocity_offset.csv` — zCNN vs. z_metal systematic (59 systems)
 - `out/dla_ew_screening.csv` — Stage 2 matched-filter: EW/significance for every target
-- `out/ew_screen_calibration.csv` — matched-filter calibration on 58 known-metallicity systems
+- `out/ew_screen_calibration.csv` — matched-filter calibration on 59 known-metallicity systems
 - `out/final_candidates.csv` — RESULT: N=39, sorted by quasar flux
 - `out/inspect/*.png` — spectrum panels for manual review of candidates
+- `out/boxcar_recheck.csv` — regenerated miss-rate check on the retracted box-car screen (32/56 = 57%)
 - `out/grb_matches.csv` — positional matches with GRBs
 - `out/background.txt` — background expectation and p-value
 
 ## Project notes
 `CLAUDE.md` is the project's lab notebook (in Russian), documenting the
 hypothesis, pilot-analysis pitfalls, the three iterations of the Stage-2
-method (with the reasoning for retracting the first two), and four project
+method (with the reasoning for retracting the first two), and five project
 rules distilled from concrete mistakes caught along the way.
