@@ -76,5 +76,5 @@ versions, and why an earlier N=66 is not trustworthy — all in CLAUDE.md.
 ## Project notes
 `CLAUDE.md` is the project's lab notebook (in Russian), documenting the
 hypothesis, pilot-analysis pitfalls, the three iterations of the Stage-2
-method (with the reasoning for retracting the first two), and five project
+method (with the reasoning for retracting the first two), and six project
 rules distilled from concrete mistakes caught along the way.
