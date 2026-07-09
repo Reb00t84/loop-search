@@ -50,7 +50,7 @@ def build_sdss_candidates():
     s["provenance"] = "SDSS/" + s["stage"].map(
         {"known_metallicity": "Stage1", "ew_screen": "Stage2"})
     return s[["ID", "ra", "dec", "z_abs", "NHI_best", "SNR", "brightness",
-              "survey", "provenance", "note"]].rename(
+              "survey", "provenance", "Plate", "MJD", "Fiber", "note"]].rename(
         columns={"NHI_best": "NHI", "SNR": "SNR_native"})
 
 def main():
@@ -110,9 +110,15 @@ def main():
     sdss["brightness_percentile"] = (sdss["brightness"].rank(pct=True) * 100).round(1)
     desi_unique["brightness_percentile"] = (desi_unique["brightness"].rank(pct=True) * 100).round(1)
 
+    # Plate/MJD/Fiber — SDSS-специфичный ключ доступа к спектру (fetch_spec
+    # в 05_ew_screen.py). У DESI спектр достаётся через SPARCL по TARGETID,
+    # который уже стоит в колонке ID, - у DESI-строк Plate/MJD/Fiber пусты.
+    for c in ("Plate", "MJD", "Fiber"):
+        desi_unique[c] = pd.NA
+
     cols = ["ID", "ra", "dec", "z_abs", "NHI", "SNR_native", "brightness",
             "brightness_percentile", "survey", "provenance",
-            "cross_survey_confirmed", "note"]
+            "Plate", "MJD", "Fiber", "cross_survey_confirmed", "note"]
     final = pd.concat([sdss[cols], desi_unique[cols]], ignore_index=True)
     final["top20_feasibility"] = final.index.isin(
         final["brightness_percentile"].nlargest(20).index)
