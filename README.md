@@ -73,6 +73,17 @@ versions, and why an earlier N=66 is not trustworthy — all in CLAUDE.md.
 - `out/grb_matches.csv` — positional matches with GRBs
 - `out/background.txt` — background expectation and p-value
 
+## DESI extension (v3 trigger, in progress)
+`desi_01`–`desi_06` port the same matched-filter method to DESI DR1
+(Brodzeller et al. 2025 DLA catalog, spectra via the SPARCL API — DESI
+stores spectra as ~219MB/file HEALPix coadds, not per-object files, so
+this needed its own fetcher). Current result: 38 DESI candidates merged
+with the SDSS 39 into `out/merged_candidates_sdss_desi.csv` (N=77, 0
+cross-survey confirmations — expected given each survey's own candidate
+rate is well under 1%, not a null result). Not yet manually inspected the
+way the SDSS 39 were; see CLAUDE.md for the full Stage 1-3 writeup,
+including three SPARCL client bugs hit and worked around along the way.
+
 ## Project notes
 `CLAUDE.md` is the project's lab notebook (in Russian), documenting the
 hypothesis, pilot-analysis pitfalls, the three iterations of the Stage-2
