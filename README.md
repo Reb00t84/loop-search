@@ -74,15 +74,25 @@ versions, and why an earlier N=66 is not trustworthy — all in CLAUDE.md.
 - `out/background.txt` — background expectation and p-value
 
 ## DESI extension (v3 trigger, in progress)
-`desi_01`–`desi_06` port the same matched-filter method to DESI DR1
+`desi_01`–`desi_09` port the same matched-filter method to DESI DR1
 (Brodzeller et al. 2025 DLA catalog, spectra via the SPARCL API — DESI
 stores spectra as ~219MB/file HEALPix coadds, not per-object files, so
-this needed its own fetcher). Current result: 38 DESI candidates merged
-with the SDSS 39 into `out/merged_candidates_sdss_desi.csv` (N=77, 0
-cross-survey confirmations — expected given each survey's own candidate
-rate is well under 1%, not a null result). Not yet manually inspected the
-way the SDSS 39 were; see CLAUDE.md for the full Stage 1-3 writeup,
-including three SPARCL client bugs hit and worked around along the way.
+this needed its own fetcher). 38 DESI candidates merged with the SDSS 39;
+a cross-survey check (does the *other* instrument's spectrum, where one
+exists at the same position+z, independently corroborate a "clean" call)
+caught 2 confirmed contaminants — one with a 9-12σ line DESI sees that
+SDSS's own ±500 km/s window missed entirely due to a ~415 km/s SDSS-DESI
+z_DLA disagreement for that system, the same failure class that retired
+the box-car method, this time between instruments rather than between
+z_DLA and the metal-line velocity. Both excluded (`out/final_candidates.csv`
+itself is left untouched — this is a merge-stage finding, not grounds to
+silently rewrite an already-referenced artifact). The 38 DESI candidates
+also went through the same PNG-panel + objective single-pixel due
+diligence the SDSS 39 got: 0/38 show a >4σ single-pixel line the
+matched-filter missed (SDSS's retracted box-car method was 58%). Current
+result: **N=75** in `out/merged_candidates_clean.csv`. See CLAUDE.md for
+the full Stage 1-3.5 writeup, including three SPARCL client bugs hit and
+worked around along the way.
 
 ## Project notes
 `CLAUDE.md` is the project's lab notebook (in Russian), documenting the

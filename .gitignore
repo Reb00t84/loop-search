@@ -1,8 +1,9 @@
 # raw downloaded catalogs (re-fetched by 01_fetch_catalogs.py; GB-scale, not ours to redistribute)
 data/
 
-# heavy generated spectrum panels (reproduced by 08_inspect_top.py)
+# heavy generated spectrum panels (reproduced by 08_inspect_top.py / desi_09_inspect.py)
 out/inspect/
+out/inspect_desi/
 
 # assistant-local notes, not part of the public repo
 CLAUDE.local.md

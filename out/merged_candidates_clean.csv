@@ -64,8 +64,6 @@ ID,ra,dec,z_abs,NHI,SNR_native,brightness,survey,cross_survey_confirmed,note
 380240248,126.0067902,31.5204589,2.83428367,20.558379,7.629,3.673,SDSS,False,"0/4 lines detected (matched-filter), 3sigma UL<190 mA"
 144875103,347.7277173,3.8153097,2.61313545,20.805231,5.519,3.524,SDSS,False,"0/4 lines detected (matched-filter), 3sigma UL<176 mA"
 145966598,325.377169,3.8962293,3.60028036,20.380312,9.137,3.492,SDSS,False,"0/4 lines detected (matched-filter), 3sigma UL<153 mA"
-374356741,228.6922861,30.7116319,2.45688079,20.376644,4.376,3.18,SDSS,False,"0/4 lines detected (matched-filter), 3sigma UL<200 mA"
-83291431,162.1558438,-0.4704582,3.88747251,20.755004,7.719,3.143,SDSS,False,"0/4 lines detected (matched-filter), 3sigma UL<143 mA"
 212390691,141.1178026,11.2103665,3.44820054,20.629578,6.765,3.03,SDSS,False,"0/4 lines detected (matched-filter), 3sigma UL<189 mA"
 215894597,30.0032612,11.6396155,2.38753969,20.434337,5.373,2.854,SDSS,False,"0/4 lines detected (matched-filter), 3sigma UL<166 mA"
 472541407,222.3191478,46.8981615,3.04468117,20.533911,6.292,2.688,SDSS,False,"0/4 lines detected (matched-filter), 3sigma UL<163 mA"

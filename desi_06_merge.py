@@ -49,6 +49,17 @@ def main():
     confirmations, and writes the merged ranked list."""
     desi = build_desi_candidates().rename(columns={"SNR_FOREST": "SNR_native"})
     sdss = build_sdss_candidates()
+
+    # ВАЖНО: DESI TARGETID — 17-значный int64 (до ~4e16), SDSS ID —
+    # float64 из каталога Chabanier. Смешивать их в одной числовой
+    # колонке через pd.concat нельзя: pandas апкастит всю колонку до
+    # float64, а float64 точно хранит целые только до 2^53 (~9e15) —
+    # 87.6% DESI TARGETID (86529/98766 в полном каталоге, 34/38 среди
+    # текущих кандидатов) при этом теряют точность молча. Приводим ID
+    # к строке ДО конкатенации, а не после — иначе тот же баг просто
+    # переедет на репрезентацию.
+    desi["ID"] = desi["ID"].astype("int64").astype(str)
+    sdss["ID"] = sdss["ID"].astype("int64").astype(str)
     print(f"DESI candidates (post-UL filter): {len(desi)}")
     print(f"SDSS candidates (existing):        {len(sdss)}")
 
