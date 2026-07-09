@@ -73,7 +73,7 @@ versions, and why an earlier N=66 is not trustworthy — all in CLAUDE.md.
 - `out/grb_matches.csv` — positional matches with GRBs
 - `out/background.txt` — background expectation and p-value
 
-## DESI extension (v3 trigger, in progress)
+## DESI extension (v3, published 2026-07-09)
 `desi_01`–`desi_09` port the same matched-filter method to DESI DR1
 (Brodzeller et al. 2025 DLA catalog, spectra via the SPARCL API — DESI
 stores spectra as ~219MB/file HEALPix coadds, not per-object files, so
@@ -89,13 +89,19 @@ itself is left untouched — this is a merge-stage finding, not grounds to
 silently rewrite an already-referenced artifact). The 38 DESI candidates
 also went through the same PNG-panel + objective single-pixel due
 diligence the SDSS 39 got: 0/38 show a >4σ single-pixel line the
-matched-filter missed (SDSS's retracted box-car method was 58%). Current
-result: **N=75** in `out/merged_candidates_clean.csv`. See CLAUDE.md for
-the full Stage 1-3.5 writeup, including three SPARCL client bugs hit and
-worked around along the way.
+matched-filter missed (SDSS's retracted box-car method was 57%, see
+`out/boxcar_recheck.csv`). Result: **N=75** (10 Stage 1 + 27 SDSS/Stage 2
++ 38 DESI/Stage 2) in `out/merged_candidates_clean.csv`, which now also
+carries `provenance` and `brightness_percentile`/`top20_feasibility`
+columns so it stands as the machine-readable source for the v3 target
+table on its own, without a join back to `final_candidates.csv`. Published
+as preprint v3, DOI 10.5281/zenodo.21274668. See CLAUDE.md for the full
+Stage 1-3.5 writeup, including three SPARCL client bugs hit and worked
+around along the way.
 
 ## Project notes
 `CLAUDE.md` is the project's lab notebook (in Russian), documenting the
 hypothesis, pilot-analysis pitfalls, the three iterations of the Stage-2
-method (with the reasoning for retracting the first two), and six project
-rules distilled from concrete mistakes caught along the way.
+method (with the reasoning for retracting the first two), the named
+"right window, wrong center" failure class, and seven project rules
+distilled from concrete mistakes caught along the way.
