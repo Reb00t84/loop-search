@@ -30,10 +30,14 @@ def build_desi_candidates():
     cand["survey"] = "DESI"
     cand["z_abs"] = cand["zDLA"]
     cand["brightness"] = cand["SNR_FOREST"]  # DESI's own units, not SDSS-comparable
+    # все текущие DESI-кандидаты — Stage 2 (EW-screen); DESI-эквивалента
+    # Stage 1 (известная металличность) пока не строился, см. TODO
+    cand["provenance"] = "DESI/Stage2"
     cand["note"] = cand.apply(
         lambda r: f"0/4 lines detected (matched-filter), 3sigma UL<{r['max_3sig_UL']*1000:.0f} mA",
         axis=1)
-    return cand[["ID", "ra", "dec", "z_abs", "NHI", "SNR_FOREST", "brightness", "survey", "note"]]
+    return cand[["ID", "ra", "dec", "z_abs", "NHI", "SNR_FOREST", "brightness",
+                 "survey", "provenance", "note"]]
 
 def build_sdss_candidates():
     """Loads the existing SDSS final_candidates.csv in the merge's common schema."""
@@ -41,7 +45,12 @@ def build_sdss_candidates():
     s["survey"] = "SDSS"
     s["z_abs"] = s["zCNN"]
     s["brightness"] = s["Flux"]  # SDSS's own units, not DESI-comparable
-    return s[["ID", "ra", "dec", "z_abs", "NHI_best", "SNR", "brightness", "survey", "note"]].rename(
+    # stage приходит из final_candidates.csv: "known_metallicity" (Stage 1,
+    # Rafelski [M/H]<-2) или "ew_screen" (Stage 2, matched-filter).
+    s["provenance"] = "SDSS/" + s["stage"].map(
+        {"known_metallicity": "Stage1", "ew_screen": "Stage2"})
+    return s[["ID", "ra", "dec", "z_abs", "NHI_best", "SNR", "brightness",
+              "survey", "provenance", "note"]].rename(
         columns={"NHI_best": "NHI", "SNR": "SNR_native"})
 
 def main():
@@ -90,9 +99,23 @@ def main():
     desi_unique = desi[~dup_desi_mask].copy()
     sdss.loc[sdss["ID"].isin(cross_sdss_ids), "survey"] = "SDSS+DESI"
 
+    # brightness_percentile: SDSS Flux и DESI SNR_FOREST — единицы разных
+    # обзоров, напрямую не сравнимы (см. коммент в build_*_candidates).
+    # Ранжируем ВНУТРИ каждого обзора отдельно (pct=True даёт 0-1 ранг
+    # внутри своей группы), затем берём топ-20 по этому общему для обоих
+    # обзоров перцентилю — честно и без псевдоточности межобзорной шкалы.
+    # ранг внутри sdss/desi_unique целиком (не по колонке "survey" - та
+    # уже перезаписана в "SDSS+DESI" для части строк на предыдущем шаге,
+    # группировка по ней расколола бы SDSS на две подгруппы неверно)
+    sdss["brightness_percentile"] = (sdss["brightness"].rank(pct=True) * 100).round(1)
+    desi_unique["brightness_percentile"] = (desi_unique["brightness"].rank(pct=True) * 100).round(1)
+
     cols = ["ID", "ra", "dec", "z_abs", "NHI", "SNR_native", "brightness",
-            "survey", "cross_survey_confirmed", "note"]
+            "brightness_percentile", "survey", "provenance",
+            "cross_survey_confirmed", "note"]
     final = pd.concat([sdss[cols], desi_unique[cols]], ignore_index=True)
+    final["top20_feasibility"] = final.index.isin(
+        final["brightness_percentile"].nlargest(20).index)
 
     # dup-check явный (правило 1): по позиции+z внутри итогового списка
     # не должно остаться пар ближе допуска, кроме уже учтённых кросс-пар.
