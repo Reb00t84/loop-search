@@ -37,7 +37,7 @@ def main():
     ru = '--ru' in sys.argv
     tag, figs = ('Рис', FIGS_RU) if ru else ('Fig', FIGS_EN)
     base = os.path.splitext(os.path.basename(src))[0]
-    build_md, tex, pdf, log = f'_build_{base}.md', f'_build_{base}.tex', base.replace('draft','preprint')+'.pdf', f'_build_{base}.log'
+    build_md, tex, pdf, log = f'_build_{base}.md', f'_build_{base}.tex', re.sub(r'_ru_v(\d+)$', r'_v\1_ru', base.replace('draft','preprint'))+'.pdf', f'_build_{base}.log'
 
     t = open(src, encoding='utf-8').read()
     lines = t.split('\n')
