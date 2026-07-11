@@ -1,0 +1,14 @@
+% header.tex — longtable-хук + xurl + microtype + глиф-фолбэки (протокол 3)
+\usepackage{xurl}
+\usepackage{microtype}
+\usepackage[htt]{hyphenat}
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\scriptsize\setlength{\tabcolsep}{2.5pt}}
+\setlength{\emergencystretch}{4em}
+\usepackage{needspace}
+\renewcommand{\_}{\textunderscore\hspace{0pt}}
+\usepackage{newunicodechar}
+\newfontfamily\glyphfallback{DejaVu Math TeX Gyre}
+\newunicodechar{ℐ}{{\glyphfallback ℐ}}
+\newunicodechar{≲}{{\glyphfallback ≲}}
+\newunicodechar{≳}{{\glyphfallback ≳}}
