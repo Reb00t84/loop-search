@@ -5,6 +5,9 @@ data/
 out/inspect/
 out/inspect_desi/
 
+# resume-only bookkeeping (hires_01_archival_coverage.py), not a deliverable
+out/archival_coverage_done_ids.txt
+
 # assistant-local notes, not part of the public repo
 CLAUDE.local.md
 .claude/

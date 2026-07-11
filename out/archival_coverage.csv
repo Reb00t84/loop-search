@@ -1,0 +1,27 @@
+ID,archive,instrument,res_class,n_exposures,total_exptime_s,wave_min_ang,wave_max_ang,covers_metal_lines,n_exposures_public,is_public,public_flag_method,snr_median,snr_values,snr_source,programs,query_status
+39628029219048108,ESO,XSHOOTER,medium,7,24360.0,2989.2000000000003,21012.600000000002,True,7,True,exact: obs_release_date,14.1,4.6;21.6;14.1;10.5;6.1;17.6;28.2,ObsCore snr (phase3 pipeline),189.A-0424(A),ok
+39627875648802065,KOA,ESI,medium,2,2700.0,3900.0,10900.0,True,2,True,approx: semester-end + propint months,,,not available for this instrument,C117E,ok
+39627875648802065,ESO,UVES,high,3,25200.002,4058.6299999999997,9767.48,True,1,True,exact: obs_release_date,4.6,10.5;4.6;1.3,ObsCore snr (phase3 pipeline),"69.A-0613(A), 71.A-0114(A);71.A-0114(A)",ok
+39627875648802065,ESO,XSHOOTER,medium,7,24360.0,2989.2000000000003,21012.600000000002,True,7,True,exact: obs_release_date,15.1,7;5.7;26;22.9;15.1;8.4;21.4,ObsCore snr (phase3 pipeline),189.A-0424(B),ok
+39628019890914673,KOA,ESI,medium,3,4500.0,3900.0,10900.0,True,3,True,approx: semester-end + propint months,,,not available for this instrument,C123E,ok
+39627762889133674,ESO,XSHOOTER,medium,40,55200.0,2989.2000000000003,21012.600000000002,True,40,True,exact: obs_release_date,1.1,1;12.7;1;12.2;0.4;1.3;1.1;1.1;1.2;1.1;0.2;5.5;1.1;0.9;11.6;1;0.3;1;12.3;1.1;1.4;12.4;0.5;0.2;13.3;1.5;1.2;0.9;5.2;12.2;1.2;1.1;1.2;1.1;1.1;0.7;0.4;1;12.5;1.2,ObsCore snr (phase3 pipeline),089.A-0855(A),ok
+531686697,KOA,HIRES,high,2,4800.0,3360.0,6260.0,False,2,True,approx: semester-end + propint months,3.5,1;6,sig2nois (KOA header keyword),U040Hb;U070Hb,ok
+531686697,KOA,ESI,medium,6,5435.0,3900.0,10900.0,True,6,True,approx: semester-end + propint months,,,not available for this instrument,U131E;U38E;U57E;U68E,ok
+438888113,KOA,HIRES,high,9,25200.0,3130.0,6050.0,True,9,True,approx: semester-end + propint months,7.0,7;7;8;8;7;7;7;9;6,sig2nois (KOA header keyword),K293Hb,ok
+400352403,KOA,ESI,medium,2,1800.0,3900.0,10900.0,True,2,True,approx: semester-end + propint months,,,not available for this instrument,U048E,ok
+219792523,ESO,UVES,high,5,21600.006,3586.3900000000003,9323.07,True,4,True,exact: obs_release_date,7.6,7.6;4.6;4;8.2;9.5,ObsCore snr (phase3 pipeline),65.O-0063(B),ok
+488235138,KOA,HIRES,high,7,20101.0,3600.0,9900.0,True,7,True,approx: semester-end + propint months,5.0,5;10;5;4;4;5;9,sig2nois (KOA header keyword),H204Hb;U048Hr,ok
+488235138,KOA,ESI,medium,4,3600.0,3900.0,10900.0,True,4,True,approx: semester-end + propint months,,,not available for this instrument,U146E,ok
+77863991,KOA,ESI,medium,9,6709.0,3900.0,10900.0,True,9,True,approx: semester-end + propint months,,,not available for this instrument,C123E;C32E;U22E,ok
+77863991,ESO,UVES,high,2,6010.0,3732.0600000000004,9463.9,True,2,True,exact: obs_release_date,2.4,4.7;0.1,ObsCore snr (phase3 pipeline),092.B-0574(A),ok
+146393570,KOA,HIRES,high,10,1384.0,4350.0,8690.0,True,10,True,approx: semester-end + propint months,122.0,122;122;122;122;122;122;1;2;8;122,sig2nois (KOA header keyword),U131H,ok
+146393570,KOA,ESI,medium,3,1800.0,3900.0,10900.0,True,3,True,approx: semester-end + propint months,,,not available for this instrument,U22E,ok
+146393570,ESO,UVES,high,4,23599.996,4143.41,10427.48,True,2,True,exact: obs_release_date,6.05,3.5;5.8;10.2;6.3,ObsCore snr (phase3 pipeline),"073.A-0071(A);073.A-0071(A), 074.A-0306(A), 69.A-0613(A);074.A-0306(A);69.A-0613(A)",ok
+146393570,ESO,XSHOOTER,medium,7,24360.0,2989.2000000000003,21012.600000000002,True,7,True,exact: obs_release_date,25.6,42.4;25.6;7.6;13.3;9.9;35.4;42.7,ObsCore snr (phase3 pipeline),189.A-0424(B),ok
+460325304,KOA,HIRES,high,14,30618.0,4550.0,9410.0,True,14,True,approx: semester-end + propint months,3.5,3;52;3;3;12;4;4;4;3;13;3;6;3;3,sig2nois (KOA header keyword),C91H;H204Hr,ok
+460325304,KOA,ESI,medium,6,10800.0,3900.0,10900.0,True,6,True,approx: semester-end + propint months,,,not available for this instrument,C117E;C97E;U143E,ok
+438508218,KOA,ESI,medium,2,1400.0,3900.0,10900.0,True,2,True,approx: semester-end + propint months,,,not available for this instrument,U018E,ok
+407352752,KOA,HIRES,high,2,7800.0,5250.0,9910.0,True,2,True,approx: semester-end + propint months,8.0,12;4,sig2nois (KOA header keyword),U018Hr,ok
+407352752,KOA,ESI,medium,2,4800.0,3900.0,10900.0,True,2,True,approx: semester-end + propint months,,,not available for this instrument,U143E,ok
+387205842,KOA,HIRES,high,2,14400.0,5240.0,9900.0,True,2,True,approx: semester-end + propint months,5.0,5;5,sig2nois (KOA header keyword),U018Hr,ok
+387205842,KOA,ESI,medium,4,8400.0,3900.0,10900.0,True,4,True,approx: semester-end + propint months,,,not available for this instrument,U130Ei;U143E,ok
