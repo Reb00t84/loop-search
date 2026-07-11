@@ -8,6 +8,7 @@ out/inspect_desi/
 # resume-only bookkeeping, not a deliverable
 out/archival_coverage_done_ids.txt
 out/highres_inventory_done_ids.txt
+out/highres_purity_done_ids.txt
 
 # assistant-local notes, not part of the public repo
 CLAUDE.local.md
