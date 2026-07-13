@@ -22,9 +22,9 @@ texlive-lang-cyrillic (русские переносы; проверяется �
 import subprocess, sys, os, re
 
 FIGS_EN = {1:'fig1_penrose_loop.pdf', 2:'fig2_parameter_plane.pdf',
-           3:'fig3_archival_funnel.png', 4:'fig4_dv_highres.png'}
+           3:'fig3_archival_funnel.pdf', 4:'fig4_dv_highres.pdf'}
 FIGS_RU = {1:'fig1_penrose_loop_ru.pdf', 2:'fig2_parameter_plane_ru.pdf',
-           3:'fig3_archival_funnel_ru.png', 4:'fig4_dv_highres_ru.png'}
+           3:'fig3_archival_funnel_ru.pdf', 4:'fig4_dv_highres_ru.pdf'}
 NEEDSPACE_ANCHORS = ['| Target | Survey | z_abs |', '| Цель | Обзор | z_abs |']
 FIG_WIDTH = '80%'
 
@@ -56,8 +56,9 @@ def main():
     open(build_md, 'w', encoding='utf-8').write(
         f'---\ntitle: "{title}"\nauthor: "{author}"\ndate: "{date}"\n---\n\n' + body)
 
+    header = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'header.tex')
     cmd = ['pandoc', build_md, '-f', 'markdown+autolink_bare_uris', '-s', '-o', tex,
-           '--pdf-engine=xelatex', '-H', 'header.tex',
+           '--pdf-engine=xelatex', '-H', header,
            '-V', 'mainfont=DejaVu Serif', '-V', 'sansfont=DejaVu Sans',
            '-V', 'monofont=DejaVu Sans Mono', '-V', 'fontsize=10pt',
            '-V', 'geometry:margin=2cm', '-V', 'colorlinks=true']
