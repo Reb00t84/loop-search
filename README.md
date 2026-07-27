@@ -1,5 +1,8 @@
 # loop_search — searching open archives for causal-loop candidates
 
+[![Code DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21247236.svg)](https://doi.org/10.5281/zenodo.21247236)
+[![Preprint DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21149560.svg)](https://doi.org/10.5281/zenodo.21149560)
+
 Pipeline for the phenomenology of preprint DOI 10.5281/zenodo.21149560
 ("self-consistent causal loops from black-hole bounces"). Channel priority
 after the pilot analysis (July 2026):

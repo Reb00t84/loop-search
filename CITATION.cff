@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "loop_search: analysis pipeline for causal-loop candidate search"
+authors:
+  - family-names: Bochkaryov
+    given-names: Semyon
+    orcid: "https://orcid.org/0009-0003-2093-891X"
+version: "1.0.0"
+doi: 10.5281/zenodo.21247236
+repository-code: "https://github.com/Reb00t84/loop-search"
+license: MIT
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.21247236
+    description: "Archived release of this code repository (v1.0.0)."
+  - type: doi
+    value: 10.5281/zenodo.21149560
+    description: "Concept DOI (all versions) of the companion preprint, 'Self-consistent causal loops from black hole bounces'."
+  - type: doi
+    value: 10.5281/zenodo.21347013
+    description: "Latest published preprint version (v5, 2026-07-13)."
