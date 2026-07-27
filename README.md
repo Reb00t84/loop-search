@@ -62,8 +62,8 @@ python hires_04_rescan_window.py       # targeted rescan for the one edge-of-win
 python hires_05_cii_diagnostics.py     # resolves the CII1334 ambiguity left by hires_04
 ```
 
-## Status (2026-07-11)
-Published through v4 (preprint DOI 10.5281/zenodo.21309962, concept DOI
+## Status (2026-07-14)
+Published through v5 (preprint DOI 10.5281/zenodo.21347013, concept DOI
 10.5281/zenodo.21149560 for all versions). `out/merged_candidates_clean.csv`
 holds the current ranked target list, **N=75** (10 Stage 1 known-metallicity
 + 27 SDSS + 38 DESI matched-filter non-detections, after excluding 2
@@ -74,7 +74,11 @@ on hand, 10 of which are usable for measurement; **all 4 usable Stage-2
 higher-resolution data — 0/4 confirmed clean** (see the v4 section below).
 `out/final_candidates.csv` (N=39, SDSS-only, published with v2) is left
 untouched as a separately-validated artifact, per project precedent — not
-silently revised in place.
+silently revised in place. v5 adds order-of-magnitude dark-sector
+composition estimates for §3-4 (`out/dark_sector_v5_estimates.md`,
+`tools/dark_sector_v5_calc.py`) — loop remains baryonic by construction,
+dark-matter contamination bounded at the 10⁻¹⁰-10⁻⁷ level across the full
+parameter grid, no flag.
 
 ## Manual checks
 - The metallicity selection cut ([O/H] < -1.5 in flag_anomalies) is a
